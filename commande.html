@@ -1,0 +1,226 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>Trivial | Commande</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"
+		integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body class="is-preload">
+	<style>
+		/* Banner */
+
+		body.is-preload #banner .logo {
+			-moz-transform: none;
+			-webkit-transform: none;
+			-ms-transform: none;
+			transform: none;
+			opacity: 1;
+		}
+
+		body.is-preload #banner h2 {
+			opacity: 1;
+			-moz-transform: none;
+			-webkit-transform: none;
+			-ms-transform: none;
+			transform: none;
+			-moz-filter: none;
+			-webkit-filter: none;
+			-ms-filter: none;
+			filter: none;
+		}
+
+		body.is-preload #banner p {
+			opacity: 01;
+			-moz-transform: none;
+			-webkit-transform: none;
+			-ms-transform: none;
+			transform: none;
+			-moz-filter: none;
+			-webkit-filter: none;
+			-ms-filter: none;
+			filter: none;
+		}
+	</style>
+	<!-- Page Wrapper -->
+	<div id="page-wrapper">
+
+		<!-- Header -->
+		<header id="header">
+			<h1><a href="/">Trvial Service</a></h1>
+			<nav>
+				<div>
+					<ul>
+						<li style="display: inline;"><a href="/">Accueil</a></li>
+						<li style="display: inline;"><a href="commande.html">Commande</a></li>
+						<li style="display: inline;"><a href="connexion.html">Connexion</a></li>
+						<li style="display: inline;"><a href="inscription.html">S'inscrire</a></li>
+					</ul>
+				</div>
+			</nav>
+		</header>
+
+
+		<!-- Wrapper -->
+		<section id="wrapper">
+			<header>
+				<div class="inner">
+					<h2>Commandes</h2>
+					<p>Ici vous passez votre commande personalisable</p>
+				</div>
+
+				<div class="inner">
+					<section style="margin: 10px">
+						<h3 class="major"></h3>
+						<form id="form">
+							<div class="row gtr-uniform">
+								<div class="col-6 col-12-xsmall">
+									<label for="demo-titre">Titre</label>
+									<input type="text" name="demo-name" id="demo-titre" value="" required />
+								</div>
+								<div class="col-6 col-12-xsmall">
+									<label for="demo-titre">Lien CDC (cahier des charged)</label>
+									<input type="text" name="demo-name" id="demo-cdc" value="https://" required />
+									<p style="color: white;">Create cdc: <a href="https://docs.google.com/document/u/0/"
+											style="color: red;">ICI</a></p>
+								</div>
+								<div class="col-12">
+									<label for="demo-message">Description</label>
+									<textarea name="demo-message" id="demo-message" rows="6" required></textarea>
+								</div>
+								<div class="col-12">
+									<label for="demo-category">Type de support</label>
+									<select name="demo-category" id="demo-support">
+										<option value="0">Non défini</option>
+										<option value="1">Bukkit</option>
+										<option value="2">Paper</option>
+										<option value="3">Spigot</option>
+										<option value="4">Forge</option>
+										<option value="5">Web</option>
+										<option value="6">Autre</option>
+									</select>
+								</div>
+								<div class="col-12">
+									<label for="demo-category">Language</label>
+									<select name="demo-category" id="demo-lang">
+										<option value="0">Non défini</option>
+										<option value="1">C++</option>
+										<option value="2">C#</option>
+										<option value="3">Java</option>
+										<option value="4">Trio Web (html,css,php)</option>
+										<option value="5">Vue</option>
+										<option value="6">Js</option>
+										<option value="7">Autre</option>
+									</select>
+								</div>
+								<div class="col-6 col-12-xsmall">
+									<label for="demo-name">Date de retour / death line</label>
+									<input type="text" name="demo-name" id="demo-line" value="" placeholder="Ex: 25/08/2006"
+										required />
+								</div>
+								<div class="col-6 col-12-xsmall">
+									<label for="demo-name">Budget</label>
+									<input type="text" name="demo-name" id="demo-budget" value="€" placeholder="Ex: 150€"
+										required />
+									<p style="color: red;">Attention vous devez mettre votre budget max</p>
+								</div>
+								<div class="col-12">
+									<ul class="actions">
+										<li><input type="submit" value="Send Message" class="primary" /></li>
+										<li><input type="reset" value="Reset" /></li>
+									</ul>
+								</div>
+							</div>
+						</form>
+					</section>
+				</div>
+			</header>
+
+			<script>
+
+				function getStringtoSupport(int) {
+					if (int == "0") {
+						return "Non défini";
+					} else if (int == "1") {
+						return "Bukkit";
+					} else if (int == "2") {
+						return "Paper";
+					} else if (int == "3") {
+						return "Spigot";
+					} else if (int == "4") {
+						return "Bukkit";
+					} else if (int == "5") {
+						return "Web";
+					} else if (int == "5") {
+						return "Autre";
+					}
+				}
+
+				function getStringtoLang(int) {
+					if (int == "0") {
+						return "Non défini";
+					} else if (int == "1") {
+						return "C++";
+					} else if (int == "2") {
+						return "C#";
+					} else if (int == "3") {
+						return "Java";
+					} else if (int == "4") {
+						return "Trio Web";
+					} else if (int == "5") {
+						return "Vue";
+					} else if (int == "6") {
+						return "Js";
+					} else if (int == "7") {
+						return "Autre";
+					}
+				}
+
+				document.getElementById("form").addEventListener("submit", function (e) {
+					const titre = document.getElementById("demo-titre");
+					const message = document.getElementById("demo-message");
+					const typeSupportC = document.getElementById("demo-support");
+					const langC = document.getElementById("demo-lang");
+					const line = document.getElementById("demo-line");
+
+					const budget = document.getElementById("demo-budget");
+					const cdc = document.getElementById("demo-cdc");
+
+					const name = localStorage.getItem("name");
+					const discord = localStorage.getItem("discord");
+					const email = localStorage.getItem("email");
+
+					if (!(name) || !(discord) || !(email)) {
+						e.preventDefault();
+						alert("Veillez vous connecter avant de passé commande")
+					} else {
+						const dataForm = {
+							title: titre.value,
+							message: message.value,
+							support: getStringtoSupport(typeSupportC.value),
+							lang: getStringtoLang(langC.value),
+							line: line.value,
+							budget: budget.value,
+							cdc: cdc.value,
+							name: name,
+							discord: discord,
+							email: email
+
+						}
+
+						axios.post('/api/shop', dataForm);
+						alert("Meci pour votre commande !! nous vous contacterons dans les prochaines minutes par discord ou mail");
+						Headers('Location: /');
+					}
+				});
+
+
+			</script>
+</body>
+
+</html>
